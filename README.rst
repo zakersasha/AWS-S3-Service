@@ -20,6 +20,8 @@ Java version 11
 
 Spring Boot version 2.5.0
 
+БД: mysql
+
 Инструкция:
 	http://localhost:8089/ - стартовая страница веб-приложения
 	
