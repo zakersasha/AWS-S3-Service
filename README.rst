@@ -1,4 +1,4 @@
-![alt text](screen.png)
+![alt text](./screen.png)
 
 Тестовое задание для разработчика
 
