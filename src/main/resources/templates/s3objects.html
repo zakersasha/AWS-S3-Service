@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Объекты S3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<style>
+    .container {
+        margin-top: 3%;
+        margin-bottom: 2%;
+    }
+
+    h1 {
+        margin-bottom: 1%;
+    }
+
+    form {
+        margin-top: 5%;
+        margin-left: 12%;
+    }
+
+    p {
+        font-weight: 600;
+    }
+</style>
+<div>Поиск по имени</div>
+<form method="post" action="filter">
+    <input type="text" name="filter">
+    <button type="submit" class="btn btn-warning">Найти</button>
+</form>
+<div class="container">
+    <h1>Объекты</h1>
+    <div th:each="item : ${s3Objects}" class="alert alert-info mt-7">
+        <h3 th:text="'Название объекта: ' +${item.name}"/>
+        <p th:text="'Последнее обновление: ' + ${item.lastModified}"/>
+        <a th:href="'/s3object/' + ${item.id}" class="btn btn-warning">Детальнее</a>
+    </div>
+</div>
+
+</body>
+</html>

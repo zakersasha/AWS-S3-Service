@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Объекты S3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<style>
+    .container {
+        margin-top: 7%;
+        margin-bottom: 1%;
+    }
+</style>
+<div class="container">
+    <div th:each="item : ${s3Objects}" class="alert alert-info mt-7">
+        <h3 th:text="'Название объекта: ' + ${item.name}"/>
+        <p th:text="'Последнее обновление: ' + ${item.lastModified}"/>
+        <p th:text="'Версии: ' + ${item.versionId}"/>
+        <p th:text="'ID тэга: ' + ${item.eTag}"/>
+        <p th:text="'Размер: ' + ${item.size}"/>
+        <p th:text="'Тип: ' + ${item.storageClass}"/>
+    </div>
+</div>
+
+</body>
+</html>
